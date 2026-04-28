@@ -2,6 +2,7 @@ import './global.css';
 import CommandPalette from '@/components/ui/CommandPalette';
 import TopLoader from '@/components/ui/TopLoader';
 import ToastProvider from '@/components/providers/ToastProvider';
+import ModalProvider from '@/components/providers/ModalProvider';
 
 export const metadata = {
   title: 'SwiftChain',
@@ -16,11 +17,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ToastProvider>
-          <TopLoader />
-          <CommandPalette />
-          {children}
-        </ToastProvider>
+        <ModalProvider>
+          <ToastProvider>
+            <TopLoader />
+            <CommandPalette />
+            {children}
+          </ToastProvider>
+        </ModalProvider>
       </body>
     </html>
   );
